@@ -23,12 +23,20 @@
     "@angular/platform-browser": "2.2.1",
     "@angular/platform-browser-dynamic": "2.2.1",
     "@angular/router": "3.2.1",
+    "@types/chai": "^3.4.34",
+    "@types/es6-shim": "^0.31.32",
+    "@types/isomorphic-fetch": "^0.0.31",
+    "@types/node": "^6.0.54",
+    "angular2-apollo": "^0.8.0",
+    "apollo-client": "^0.5.25",
+    "graphql-tag": "^1.1.2",
     "nativescript-angular": "1.2.0",
     "nativescript-theme-core": "^0.2.1",
     "nativescript-unit-test-runner": "^0.3.4",
     "reflect-metadata": "~0.1.8",
     "rxjs": "5.0.0-beta.12",
-    "tns-core-modules": "2.4.4"
+    "tns-core-modules": "2.4.4",
+    "typed-graphql": "^1.0.2"
   },
   "devDependencies": {
     "jasmine-core": "^2.5.2",

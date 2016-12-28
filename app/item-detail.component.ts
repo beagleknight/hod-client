@@ -1,25 +1,35 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
+import { Angular2Apollo } from 'angular2-apollo';
+import gql from 'graphql-tag';
 
-import { Item } from "./item";
-import { ItemService } from "./item.service";
+const BoardGameById = gql`
+  query BoardGameById($id: ID!) {
+    boardgame(id: $id) {
+      id,
+      name
+    }
+  }
+`;
 
 @Component({
-    selector: "ns-details",
-    templateUrl: "item-detail.component.html",
+  selector: "ns-details",
+  templateUrl: "item-detail.component.html",
 })
 export class ItemDetailComponent implements OnInit {
-    item: Item;
+  item: any;
 
-    constructor(
-        private itemService: ItemService,
-        private route: ActivatedRoute
-    ) { 
-        console.log("item");
-    }
+  constructor(private route: ActivatedRoute, private apollo: Angular2Apollo) {}
 
-    ngOnInit(): void {
-        const id = +this.route.snapshot.params["id"];
-        this.item = this.itemService.getItem(id);
-    }
+  ngOnInit(): void {
+    const id = +this.route.snapshot.params["id"];
+    this.apollo.watchQuery({
+      query: BoardGameById,
+      variables: {
+        id
+      }
+    }).subscribe(({ data }) => {
+      this.item = data.boardgame;
+    });
+  }
 }
