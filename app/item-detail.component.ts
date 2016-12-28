@@ -14,7 +14,9 @@ export class ItemDetailComponent implements OnInit {
     constructor(
         private itemService: ItemService,
         private route: ActivatedRoute
-    ) { }
+    ) { 
+        console.log("item");
+    }
 
     ngOnInit(): void {
         const id = +this.route.snapshot.params["id"];
