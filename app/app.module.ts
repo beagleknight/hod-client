@@ -7,6 +7,8 @@ import { AppRoutingModule } from './app.routing';
 import { AppComponent } from "./app.component";
 
 import { ItemService } from './item.service';
+
+import { LoginComponent } from "./users/login.component";
 import { ItemsComponent } from "./items.component";
 import { ItemDetailComponent } from "./item-detail.component";
 
@@ -27,6 +29,7 @@ const client = new ApolloClient({
     ],
     declarations: [
         AppComponent,
+        LoginComponent,
         ItemsComponent,
         ItemDetailComponent
     ],
