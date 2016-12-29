@@ -6,13 +6,14 @@ import { ApolloModule } from 'angular2-apollo';
 import { AppRoutingModule } from './app.routing';
 import { AppComponent } from "./app.component";
 
-import { ItemService } from './item.service';
+import { ItemService }         from './item.service';
 
-import { LoginComponent } from "./users/login.component";
-import { ProfileComponent } from "./users/profile.component";
-
-import { ItemsComponent } from "./items.component";
-import { ItemDetailComponent } from "./item-detail.component";
+import { HomeComponent }       from "./home/home.component";
+import { LoginComponent }      from "./users/login.component";
+import { ProfileComponent }    from "./users/profile.component";
+import { CollectionComponent } from './collection/collection.component';
+import { ListComponent }       from './collection/list.component';
+import { SearchComponent }     from './collection/search.component';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -31,10 +32,12 @@ const client = new ApolloClient({
     ],
     declarations: [
         AppComponent,
+        HomeComponent,
         LoginComponent,
         ProfileComponent,
-        ItemsComponent,
-        ItemDetailComponent
+        CollectionComponent,
+        ListComponent,
+        SearchComponent
     ],
     providers: [
         ItemService

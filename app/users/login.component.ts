@@ -8,15 +8,19 @@ import * as tnsOAuthModule from 'nativescript-oauth';
   template: `
     <StackLayout>
       <Button text="Login with Facebook" (tap)="login()"></Button>
+      <ActivityIndicator [busy]="isLoading" [visibility]="isLoading ? 'visible' : 'collapse'" row="1" horizontalAlignment="center" verticalAlignment="center"></ActivityIndicator>
     </StackLayout>
   `
 })
 export class LoginComponent {
+  isLoading: boolean = false;
   constructor(private _router: Router) {}
 
   login() {
+    this.isLoading = true;
     tnsOAuthModule.login()
       .then(() => {
+        this.isLoading = false;
         this._router.navigate(['profile']);
       })
       .catch((er) => {
