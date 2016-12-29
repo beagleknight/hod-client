@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component }       from '@angular/core';
+import { Router }          from '@angular/router';
 
 import * as tnsOAuthModule from 'nativescript-oauth';
 
@@ -11,10 +12,12 @@ import * as tnsOAuthModule from 'nativescript-oauth';
   `
 })
 export class LoginComponent {
+  constructor(private _router: Router) {}
+
   login() {
     tnsOAuthModule.login()
       .then(() => {
-        console.dir("accessToken " + tnsOAuthModule.accessToken());
+        this._router.navigate(['profile']);
       })
       .catch((er) => {
         //do something with the error
