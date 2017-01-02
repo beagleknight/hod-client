@@ -1,18 +1,23 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/platform";
+import { NgModule, NO_ERRORS_SCHEMA }            from "@angular/core";
+import { NativeScriptModule }                    from "nativescript-angular/platform";
 import ApolloClient, { createNetworkInterface  } from 'apollo-client';
-import { ApolloModule } from 'angular2-apollo';
+import { ApolloModule }                          from 'angular2-apollo';
 
-import { AppRoutingModule } from './app.routing';
-import { AppComponent } from "./app.component";
+import { AppRoutingModule }                      from './app.routing';
+import { AppComponent }                          from "./app.component";
 
-import { ItemService } from './item.service';
-import { ItemsComponent } from "./items.component";
-import { ItemDetailComponent } from "./item-detail.component";
+import { AuthService }                           from './users/auth.service';
+
+import { HomeComponent }                         from "./home/home.component";
+import { LoginComponent }                        from "./users/login.component";
+import { ProfileComponent }                      from "./users/profile.component";
+import { CollectionComponent }                   from './collection/collection.component';
+import { ListComponent }                         from './collection/list.component';
+import { SearchComponent }                       from './collection/search.component';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3000/graphql'
+    uri: 'http://192.168.1.199:3000/graphql'
   }),
 });
 
@@ -27,11 +32,15 @@ const client = new ApolloClient({
     ],
     declarations: [
         AppComponent,
-        ItemsComponent,
-        ItemDetailComponent
+        HomeComponent,
+        LoginComponent,
+        ProfileComponent,
+        CollectionComponent,
+        ListComponent,
+        SearchComponent
     ],
     providers: [
-        ItemService
+        AuthService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

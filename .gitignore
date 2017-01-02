@@ -7,3 +7,5 @@ platforms/
 tmp/
 typings/
 .vscode/
+.env
+app/facebook_init_options.ts

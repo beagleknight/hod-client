@@ -5,4 +5,10 @@ global.process =  {env: {}};
 
 import { AppModule } from "./app.module";
 
+import * as tnsOAuthModule from 'nativescript-oauth';
+
+import { facebookInitOptions } from './facebook_init_options';
+
+tnsOAuthModule.initFacebook(facebookInitOptions);
+
 platformNativeScriptDynamic().bootstrapModule(AppModule);

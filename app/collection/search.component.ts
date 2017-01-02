@@ -12,10 +12,16 @@ const BoardGames = gql`
 `;
 
 @Component({
-  selector: "ns-items",
-  templateUrl: "items.component.html",
+  selector: "search",
+  template: `
+    <ListView [items]="items" class="list-group">
+      <template let-item="item">
+        <Label [nsRouterLink]="['/item', item.id]" [text]="item.name" class="list-group-item"></Label>
+      </template>
+    </ListView>
+  `
 })
-export class ItemsComponent implements OnInit {
+export class SearchComponent implements OnInit {
   items: any[];
 
   constructor(private apollo: Angular2Apollo) { }
