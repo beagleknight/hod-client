@@ -17,7 +17,7 @@ import { SearchComponent }                       from './collection/search.compo
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
-    uri: 'http://localhost:3000/graphql'
+    uri: 'http://192.168.1.199:3000/graphql'
   }),
 });
 

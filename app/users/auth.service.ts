@@ -23,6 +23,7 @@ export class AuthService {
   signUpFromFacebook(): Observable<any> {
     return Observable.fromPromise(tnsOAuthModule.login())
       .switchMap(token => {
+        console.log(token);
         return this._apollo.mutate({
           mutation: createUser,
           variables: {

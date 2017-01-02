@@ -10,43 +10,43 @@ import { ListComponent }            from './collection/list.component';
 import { SearchComponent }          from './collection/search.component';
 
 const routes: Routes = [
-	{ 
-		path: '',
-		component: HomeComponent,
-		children: [
-			{
-				path: '',
-				redirectTo: '/login',
-				pathMatch: 'full'
-			},
-			{ 
-				path: 'login',
-				component: LoginComponent
-			},
-			{ 
-				path: 'profile',
-				component: ProfileComponent
-			},
-			{ 
-				path: 'collection',
-				component: CollectionComponent,
-				children: [
-					{
-						path: '',
-						component: ListComponent
-					},
-					{
-						path: 'search',
-						component: SearchComponent
-					}
-				]
-			}
-		]
-	}
+  { 
+    path: '',
+    component: HomeComponent,
+    children: [
+      {
+        path: '',
+        redirectTo: '/login',
+        pathMatch: 'full'
+      },
+      { 
+        path: 'login',
+        component: LoginComponent
+      },
+      { 
+        path: 'profile',
+        component: ProfileComponent
+      },
+      { 
+        path: 'collection',
+        component: CollectionComponent,
+        children: [
+          {
+            path: '',
+            component: ListComponent
+          },
+          {
+            path: 'search',
+            component: SearchComponent
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 @NgModule({
-	imports: [NativeScriptRouterModule.forRoot(routes)],
-	exports: [NativeScriptRouterModule]
+  imports: [NativeScriptRouterModule.forRoot(routes)],
+  exports: [NativeScriptRouterModule]
 })
 export class AppRoutingModule { }
