@@ -1,7 +1,8 @@
 import { Component }       from '@angular/core';
 import { Router }          from '@angular/router';
 
-import * as tnsOAuthModule from 'nativescript-oauth';
+import { AuthService }     from './auth.service';
+
 
 @Component({
   selector: 'login',
@@ -14,17 +15,18 @@ import * as tnsOAuthModule from 'nativescript-oauth';
 })
 export class LoginComponent {
   isLoading: boolean = false;
-  constructor(private _router: Router) {}
+  constructor(private _router: Router, private _auth: AuthService) {}
 
   login() {
     this.isLoading = true;
-    tnsOAuthModule.login()
-      .then(() => {
+    this._auth.signUpFromFacebook()
+      .subscribe((data) => {
+        console.log(JSON.stringify(data));
+        this._router.navigate(['profile']);        
+      }, (err) => {
+        console.error(err);        
+      }, () => {
         this.isLoading = false;
-        this._router.navigate(['profile']);
-      })
-      .catch((er) => {
-        //do something with the error
       });
   }
 }

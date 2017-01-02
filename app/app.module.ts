@@ -1,19 +1,19 @@
-import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
-import { NativeScriptModule } from "nativescript-angular/platform";
+import { NgModule, NO_ERRORS_SCHEMA }            from "@angular/core";
+import { NativeScriptModule }                    from "nativescript-angular/platform";
 import ApolloClient, { createNetworkInterface  } from 'apollo-client';
-import { ApolloModule } from 'angular2-apollo';
+import { ApolloModule }                          from 'angular2-apollo';
 
-import { AppRoutingModule } from './app.routing';
-import { AppComponent } from "./app.component";
+import { AppRoutingModule }                      from './app.routing';
+import { AppComponent }                          from "./app.component";
 
-import { ItemService }         from './item.service';
+import { AuthService }                           from './users/auth.service';
 
-import { HomeComponent }       from "./home/home.component";
-import { LoginComponent }      from "./users/login.component";
-import { ProfileComponent }    from "./users/profile.component";
-import { CollectionComponent } from './collection/collection.component';
-import { ListComponent }       from './collection/list.component';
-import { SearchComponent }     from './collection/search.component';
+import { HomeComponent }                         from "./home/home.component";
+import { LoginComponent }                        from "./users/login.component";
+import { ProfileComponent }                      from "./users/profile.component";
+import { CollectionComponent }                   from './collection/collection.component';
+import { ListComponent }                         from './collection/list.component';
+import { SearchComponent }                       from './collection/search.component';
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -40,7 +40,7 @@ const client = new ApolloClient({
         SearchComponent
     ],
     providers: [
-        ItemService
+        AuthService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

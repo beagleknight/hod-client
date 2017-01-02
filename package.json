@@ -10,8 +10,8 @@
         }
     },
     "scripts": {
-        "start:ios": "tns run ios --emulator",
-        "watch:ios": "tns livesync ios --emulator --watch",
+        "run:ios": "tns run ios --emulator",
+        "start:ios": "tns livesync ios --emulator --watch",
         "test:ios": "tns test ios --emulator",
         "clean-android": "tns clean-app android",
         "clean-ios": "tns clean-app ios",
